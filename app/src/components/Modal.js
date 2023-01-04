@@ -6,15 +6,20 @@ function Modal({ showModal, setShowModal }) {
   const onSubmit = (e) => {
     e.preventDefault();
     setIssueNumber((prev) => prev + 1);
+    const issues = JSON.parse(window.localStorage.getItem("issues"));
     window.localStorage.setItem(
-      issueNumber,
-      JSON.stringify({
-        title: e.target.title.value,
-        dueDate: e.target.dueDate.value,
-        assignedTo: e.target.assignedTo.value,
-        content: e.target.content.value,
-        state: e.target.state.value,
-      })
+      "issues",
+      JSON.stringify([
+        ...issues,
+        {
+          issueNumber,
+          title: e.target.title.value,
+          dueDate: e.target.dueDate.value,
+          assignedTo: e.target.assignedTo.value,
+          content: e.target.content.value,
+          state: e.target.state.value,
+        },
+      ])
     );
     setShowModal(false);
   };
