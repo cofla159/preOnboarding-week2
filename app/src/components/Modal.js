@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Modal({ showModal, setShowModal }) {
+function Modal({ showModal, setShowModal, mode, issue }) {
   const [issueNumber, setIssueNumber] = useState(0);
 
   const onSubmit = (e) => {
@@ -45,6 +45,7 @@ function Modal({ showModal, setShowModal }) {
                         type="text"
                         name="title"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        required
                       />
                     </label>
 
