@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Modal({ showModal, setShowModal }) {
-  let issueNumber = 0;
+  const [issueNumber, setIssueNumber] = useState(0);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    issueNumber++;
+    setIssueNumber((prev) => prev + 1);
     window.localStorage.setItem(
       issueNumber,
       JSON.stringify({
