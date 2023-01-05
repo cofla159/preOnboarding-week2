@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Modal({ showModal, setShowModal, mode, issue }) {
   const [issueNumber, setIssueNumber] = useState(0);
 
-  const onSubmit = (e) => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
     setIssueNumber((prev) => prev + 1);
     const issues = JSON.parse(window.localStorage.getItem("issues"));
@@ -38,7 +38,7 @@ function Modal({ showModal, setShowModal, mode, issue }) {
                   <span className="text-black h-6 w-6 text-2xl block">x</span>
                 </button>
                 <div className="relative p-6 flex-auto">
-                  <form className="space-y-6" onSubmit={onSubmit}>
+                  <form className="space-y-6" onSubmit={handleOnSubmit}>
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                       제목
                       <input
